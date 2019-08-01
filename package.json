@@ -1,0 +1,23 @@
+{
+  "name": "nw-programmatic-folder-select",
+  "version": "1.0.0",
+  "description": "Programmatically open a native \"Folder select\" dialog in NW.js",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwutils/nw-programmatic-folder-select.git"
+  },
+  "keywords": [
+    "programmatic",
+    "folder",
+    "selection",
+    "nw.js",
+    "xpda"
+  ],
+  "author": "The Jared Wilcurt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nwutils/nw-programmatic-folder-select/issues"
+  },
+  "homepage": "https://github.com/nwutils/nw-programmatic-folder-select#readme"
+}
