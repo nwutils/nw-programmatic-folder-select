@@ -1,5 +1,7 @@
 # nw-programmatic-folder-select
 
+[![Build Status](https://travis-ci.org/nwutils/nw-programmatic-folder-select.svg?branch=master)](https://travis-ci.org/nwutils/nw-programmatic-folder-select)
+
 Programmatically open a native "Folder select" dialog in NW.js.
 
 Similar to `<input type="file" nwdirectory>` but with just JavaScript.
