@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "Programmatically open a native \"Folder select\" dialog in NW.js",
   "main": "index.js",
+  "scripts": {
+    "lint": "eslint --config=.eslintrc.js index.js",
+    "fix": "eslint --fix --config=.eslintrc.js index.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nwutils/nw-programmatic-folder-select.git"
