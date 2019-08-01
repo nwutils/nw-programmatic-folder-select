@@ -5,19 +5,32 @@
  */
 function openFolderExplorer (options, callback) {
   // Argument validation
+  var error = false;
   if (typeof(options) === 'function') {
     callback = options;
     options = null;
   }
   if (options && typeof(options) !== 'object') {
     console.log('Optional options argument must be an object');
-  } else if(options && options.directory && typeof(options.directory) !== 'string') {
-    console.log('Optional options.directory must be a string, like "C:\\"');
-  } else if (options && options.title && typeof(options.title) !== 'string') {
-    console.log('Optional options.title must be a string, like "Select path to store settings"');
+    error = true;
+  }
+  if (options && typeof(options) === 'object') {
+    if (options.directory && typeof(options.directory) !== 'string') {
+      console.log('Optional options.directory must be a string, like "C:\\"');
+      error = true;
+    }
+    if (options.title && typeof(options.title) !== 'string') {
+      console.log('Optional options.title must be a string, like "Select path to store settings"');
+      error = true;
+    }
   }
   if (callback && typeof(callback) !== 'function') {
     console.log('Optional callback argument must be a function');
+    error = true;
+  }
+  // If there are invalid arguments, return early to prevent errors from being thrown
+  if (error) {
+    return;
   }
 
   // If element does not exist, create it and append to DOM
