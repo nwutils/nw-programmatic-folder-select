@@ -4,11 +4,15 @@ Programmatically open a native "Folder select" dialog in NW.js.
 
 Similar to `<input type="file" nwdirectory>` but with just JavaScript.
 
+Compatible with all versions of NW.js (even all the way back to 0.12.3).
+
+
 ## Installation
 
 ```
 npm install --save nw-programmatic-folder-select
 ```
+
 
 ## Basic Usage
 
@@ -16,6 +20,7 @@ npm install --save nw-programmatic-folder-select
 const openFolderExplorer = require('nw-programmatic-folder-select');
 openFolderExplorer((selection) => { console.log(selection); });
 ```
+
 
 ## Advanced Usage
 
