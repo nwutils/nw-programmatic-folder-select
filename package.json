@@ -1,7 +1,7 @@
 {
   "name": "nw-programmatic-folder-select",
-  "version": "1.0.1",
-  "description": "Programmatically open a native \"Folder select\" dialog in NW.js",
+  "version": "1.0.2",
+  "description": "Programmatically open a native folder select dialog in NW.js",
   "main": "index.js",
   "scripts": {
     "lint": "eslint --config=.eslintrc.js index.js",
