@@ -65,4 +65,4 @@ function openFolderExplorer (options, callback) {
   element.click();
 }
 
-module.export = openFolderExplorer;
+module.exports = openFolderExplorer;
