@@ -6,6 +6,10 @@ Programmatically open a native "Folder select" dialog in NW.js.
 
 Similar to `<input type="file" nwdirectory>` but with just JavaScript.
 
+![Windows Screenshot from NW.js 0.12.3](screenshots/win.png)
+![Windows Screenshot from NW.js 0.40.0](screenshots/win2.png)
+![Ubuntu Screenshot from NW.js 0.40.0](screenshots/ubuntu.png)
+
 Compatible with all versions of NW.js.
 
 **Version** | **Tested**
