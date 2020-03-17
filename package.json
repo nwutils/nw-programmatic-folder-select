@@ -1,6 +1,6 @@
 {
   "name": "nw-programmatic-folder-select",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Programmatically open a native folder select dialog in NW.js",
   "main": "index.js",
   "scripts": {

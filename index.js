@@ -42,7 +42,7 @@ function openFolderExplorer (window, options, callback) {
   if (!window.document.getElementById('nwdirectory')) {
     var inputElement = window.document.createElement('input');
     inputElement.setAttribute('type', 'file');
-    inputElement.setAttribute('id', 'nwdirectory');
+    inputElement.setAttribute('id', 'nw-programmatic-folder-select');
     inputElement.setAttribute('nwdirectory', '');
     inputElement.setAttribute('style', 'display:none');
     inputElement.addEventListener('change', function (evt) {
@@ -54,7 +54,7 @@ function openFolderExplorer (window, options, callback) {
   }
 
   // Modify element based on options
-  var element = window.document.getElementById('nwdirectory');
+  var element = window.document.getElementById('nw-programmatic-folder-select');
   if (options && options.directory) {
     element.setAttribute('nwworkingdir', options.directory);
   } else {
