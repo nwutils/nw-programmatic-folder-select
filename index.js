@@ -11,15 +11,19 @@ function openFolderExplorer (window, options, callback) {
     console.log('You must pass in the window object for this script to have access to the browser context.');
     error = true;
   }
-  if (typeof(options) === 'function') {
+  if (typeof(options) === 'function' && !callback) {
     callback = options;
     options = null;
   }
-  if (options && typeof(options) !== 'object') {
+  if (
+    options &&
+    (typeof(options) === 'function' && typeof(callback) === 'function') ||
+    (typeof(options) !== 'object' || Array.isArray(options))
+  ) {
     console.log('Optional options argument must be an object');
     error = true;
   }
-  if (options && typeof(options) === 'object') {
+  if (options && typeof(options) === 'object' && !Array.isArray(options)) {
     if (options.directory && typeof(options.directory) !== 'string') {
       console.log('Optional options.directory must be a string, like "C:\\"');
       error = true;
@@ -38,12 +42,19 @@ function openFolderExplorer (window, options, callback) {
     return;
   }
 
+
+  // Constants
+  var ELEMENT_ID = 'nw-programmatic-folder-select';
+  var NW_DIRECTORY = 'nwdirectory';
+  var NW_WORKING_DIR = 'nwworkingdir';
+  var NW_DIR_DESC = 'nwdirectorydesc';
+
   // If element does not exist, create it and append to DOM
-  if (!window.document.getElementById('nwdirectory')) {
+  if (!window.document.getElementById(ELEMENT_ID)) {
     var inputElement = window.document.createElement('input');
     inputElement.setAttribute('type', 'file');
-    inputElement.setAttribute('id', 'nw-programmatic-folder-select');
-    inputElement.setAttribute('nwdirectory', '');
+    inputElement.setAttribute('id', ELEMENT_ID);
+    inputElement.setAttribute(NW_DIRECTORY, '');
     inputElement.setAttribute('style', 'display:none');
     inputElement.addEventListener('change', function (evt) {
       if (callback) {
@@ -54,16 +65,16 @@ function openFolderExplorer (window, options, callback) {
   }
 
   // Modify element based on options
-  var element = window.document.getElementById('nw-programmatic-folder-select');
+  var element = window.document.getElementById(ELEMENT_ID);
   if (options && options.directory) {
-    element.setAttribute('nwworkingdir', options.directory);
+    element.setAttribute(NW_WORKING_DIR, options.directory);
   } else {
-    element.removeAttribute('nwworkingdir');
+    element.removeAttribute(NW_WORKING_DIR);
   }
   if (options && options.title) {
-    element.setAttribute('nwdirectorydesc', options.title);
+    element.setAttribute(NW_DIR_DESC, options.title);
   } else {
-    element.removeAttribute('nwdirectorydesc');
+    element.removeAttribute(NW_DIR_DESC);
   }
 
   // Trigger a click event to cause the dialog to open
