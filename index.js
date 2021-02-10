@@ -7,7 +7,13 @@
 function openFolderExplorer (window, options, callback) {
   // Argument validation
   var error = false;
-  if (!window || typeof(window) !== 'object') {
+  if (
+    !window ||
+    typeof(window) !== 'object' ||
+    Array.isArray(window) ||
+    !window.document ||
+    !window.document.getElementById
+  ) {
     console.log('You must pass in the window object for this script to have access to the browser context.');
     error = true;
   }
@@ -46,8 +52,8 @@ function openFolderExplorer (window, options, callback) {
   // Constants
   var ELEMENT_ID = 'nw-programmatic-folder-select';
   var NW_DIRECTORY = 'nwdirectory';
-  var NW_WORKING_DIR = 'nwworkingdir';
-  var NW_DIR_DESC = 'nwdirectorydesc';
+  var NW_DIRECTORY_DESCRIPTION = 'nwdirectorydesc';
+  var NW_WORKING_DIRECTORY = 'nwworkingdir';
 
   // If element does not exist, create it and append to DOM
   if (!window.document.getElementById(ELEMENT_ID)) {
@@ -67,14 +73,14 @@ function openFolderExplorer (window, options, callback) {
   // Modify element based on options
   var element = window.document.getElementById(ELEMENT_ID);
   if (options && options.directory) {
-    element.setAttribute(NW_WORKING_DIR, options.directory);
+    element.setAttribute(NW_WORKING_DIRECTORY, options.directory);
   } else {
-    element.removeAttribute(NW_WORKING_DIR);
+    element.removeAttribute(NW_WORKING_DIRECTORY);
   }
   if (options && options.title) {
-    element.setAttribute(NW_DIR_DESC, options.title);
+    element.setAttribute(NW_DIRECTORY_DESCRIPTION, options.title);
   } else {
-    element.removeAttribute(NW_DIR_DESC);
+    element.removeAttribute(NW_DIRECTORY_DESCRIPTION);
   }
 
   // Trigger a click event to cause the dialog to open
