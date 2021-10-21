@@ -83,6 +83,13 @@ function openFolderExplorer (window, options, callback) {
     element.removeAttribute(NW_DIRECTORY_DESCRIPTION);
   }
 
+  // Clear out the previous value before opening the dialogu to work around
+  // a bug where a transformed version of the previous value is shown in the
+  // dialog like 'C__Users_Bob_Desktop'. See: github.com/nwjs/nw.js/issues/7786
+  if (element && element.files && element.files.clear) {
+    element.files.clear();
+  }
+
   // Trigger a click event to cause the dialog to open
   element.click();
 }
