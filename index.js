@@ -12,7 +12,10 @@ function openFolderExplorer (window, options, callback) {
     typeof(window) !== 'object' ||
     Array.isArray(window) ||
     !window.document ||
-    !window.document.getElementById
+    !window.document.getElementById ||
+    !window.document.createElement ||
+    !window.document.body ||
+    !window.document.body.appendChild
   ) {
     console.log('You must pass in the window object for this script to have access to the browser context.');
     error = true;
