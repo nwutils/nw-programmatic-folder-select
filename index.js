@@ -1,8 +1,23 @@
 /**
+ * @typedef  {object}  OPTIONS
+ * @property {string}  [directory]  Optional string. The working directory to start in
+ * @property {string}  [title]      Optional string. A custom title for the OS's folder selection dialog
+ */
+
+/**
+ * Optional asynchronous callback function.
+ *
+ * @callback {Function} CALLBACK
+ * @param    {string}   selection  String to the path, like 'C:\Users\Bob\Desktop', or undefined if no selection made
+ * @return   {void}
+ */
+
+/**
  * Opens the native OS's folder selection dialog
- * @param  {object}   window   The "window" object from the browser context. Required.
- * @param  {object}   options  Optional object for setting the title of the window and the default working directory to start in
- * @param  {Function} callback This is called when the user selects a folder or cancels the window. it will retun the path to the folder or undefined
+ *
+ * @param {object}   window      The "window" object from the browser context. Required.
+ * @param {OPTIONS}  [options]   Optional object for setting the title of the window and the default working directory to start in
+ * @param {CALLBACK} [callback]  This is called when the user selects a folder or cancels the window. Returns the path to the folder or undefined
  */
 function openFolderExplorer (window, options, callback) {
   // Argument validation
@@ -86,7 +101,7 @@ function openFolderExplorer (window, options, callback) {
     element.removeAttribute(NW_DIRECTORY_DESCRIPTION);
   }
 
-  // Clear out the previous value before opening the dialogu to work around
+  // Clear out the previous value before opening the dialog to work around
   // a bug where a transformed version of the previous value is shown in the
   // dialog like 'C__Users_Bob_Desktop'. See: github.com/nwjs/nw.js/issues/7786
   if (element && element.files && element.files.clear) {
