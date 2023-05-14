@@ -82,7 +82,7 @@ function openFolderExplorer (window, options, callback) {
     inputElement.setAttribute('style', 'display:none');
     inputElement.addEventListener('change', function (evt) {
       if (callback) {
-        callback(evt.target.value);
+        callback(evt && evt.target && evt.target.value);
       }
     });
     window.document.body.appendChild(inputElement);
