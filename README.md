@@ -17,6 +17,9 @@ Compatible with all versions of NW.js.
 v0.12.3     | :heavy_check_mark:
 v0.14.7     | :heavy_check_mark:
 v0.40.0     | :heavy_check_mark:
+v0.83.0     | :heavy_check_mark:
+
+Works on all platforms NW.js runs on (Windows, Linux, OSX).
 
 
 ## Installation
@@ -49,7 +52,7 @@ const options = {
 
 // Optional asynchronous callback function.
 // Returns a string to the path, like 'C:\Users\Bob\Desktop', or undefined if no selection made
-const callback = function (selection) {
+function callback (selection) {
   if (selection) {
     console.log('The user chose ' + selection);
   } else {
