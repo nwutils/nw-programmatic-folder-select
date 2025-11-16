@@ -8,7 +8,7 @@
     "fix": "eslint --fix --config=.eslintrc.js index.js"
   },
   "devDependencies": {
-    "eslint": "^7.5.0"
+    "eslint": "^9.39.1"
   },
   "repository": {
     "type": "git",
